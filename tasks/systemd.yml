@@ -1,7 +1,7 @@
 ---
 # task/systemd file for dns_resolver_conf
 - name: "Configure systemd-resolved"
-  ansible.builtin.systemd:
+  ansible.builtin.service:
     name: systemd-resolved
-    state: "{{ 'started' if not dns_resolv_conf_disable_resolvectl else 'stopped' }}"
     enabled: "{{ 'true' if not dns_resolv_conf_disable_resolvectl else 'false' }}"
+    state: "{{ 'started' if not dns_resolv_conf_disable_resolvectl else 'stopped' }}"
