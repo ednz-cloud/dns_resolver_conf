@@ -1,0 +1,10 @@
+---
+# task/main file for dns_resolver_conf
+- name: "Import resolved_conf"
+  ansible.builtin.include_tasks: resolved_conf.yml
+
+- name: "Import resolv_conf"
+  ansible.builtin.include_tasks: resolv_conf.yml
+
+- name: "Import systemd"
+  ansible.builtin.include_tasks: systemd.yml

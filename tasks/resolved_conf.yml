@@ -1,0 +1,9 @@
+---
+# task/resolved_conf file for dns_resolver_conf
+- name: "Copy dummy resolved.conf"
+  ansible.builtin.copy:
+    src: files/resolved.conf
+    dest: /etc/systemd/resolved.conf
+    owner: root
+    group: root
+    mode: '0644'

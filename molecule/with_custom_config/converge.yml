@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include ednxzu.dns_resolver_conf"
+      ansible.builtin.include_role:
+        name: "ednxzu.dns_resolver_conf"

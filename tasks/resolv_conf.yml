@@ -1,0 +1,9 @@
+---
+# task/resolv_conf for dns_resolver_conf
+- name: "Copy /etc/resolv.conf file"
+  ansible.builtin.template:
+    src: "resolv.conf.j2"
+    dest: "{{ dns_resolv_conf_path }}/resolv.conf"
+    owner: root
+    group: root
+    mode: '0644'

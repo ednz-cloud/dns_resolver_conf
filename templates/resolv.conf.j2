@@ -1,0 +1,19 @@
+# {{ ansible_managed }}
+
+{% if dns_resolv_conf_search is defined and dns_resolv_conf_search | length > 0 %}
+search {{ dns_resolv_conf_search|join(' ') }}
+{% endif %}
+{% if dns_resolv_conf_domain is defined and dns_resolv_conf_domain != "" %}
+domain {{ dns_resolv_conf_domain }}
+{% endif %}
+{% for ns in dns_resolv_conf_nameservers %}
+nameserver {{ ns }}
+{% endfor %}
+{% if dns_resolv_conf_sortlist is defined and dns_resolv_conf_sortlist | length > 0 %}
+{% for sl in dns_resolv_conf_sortlist %}
+sortlist {{ sl }}
+{% endfor %}
+{% endif %}
+{% if dns_resolv_conf_options is defined and dns_resolv_conf_options | length > 0 %}
+options {{ dns_resolv_conf_options|join(' ') }}
+{% endif %}
