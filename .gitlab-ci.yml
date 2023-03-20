@@ -2,7 +2,7 @@
 stages:
   - verify
   - test-default
-  - test-with-acl-enabled
+  - test-with-custom-config
 
 image:
   name: registry.ednz.fr/forge/ansible-runner
@@ -16,8 +16,8 @@ variables:
 .stage-test-default:
   stage: test-default
 
-.stage-test-with-acl-enabled:
-  stage: test-with-acl-enabled
+.stage-test-with-custom-config:
+  stage: test-with-custom-config
 
 .variables-ubuntu-2004:
   variables:
@@ -35,9 +35,9 @@ variables:
   script:
     - molecule test
 
-.script-molecule-test-with-acl-enabled:
+.script-molecule-test-with-custom-config:
   script:
-    - molecule test -s with_acl_enabled
+    - molecule test -s with_custom_config
 
 ansible-verify:
   stage: verify
@@ -65,18 +65,18 @@ ansible-test-debian-11-default:
 
 ansible-test-ubuntu-2004-with-acl-enabled:
   extends:
-    - .stage-test-with-acl-enabled
+    - .stage-test-with-custom-config
     - .variables-ubuntu-2004
-    - .script-molecule-test-with-acl-enabled
+    - .script-molecule-test-with-custom-config
 
 ansible-test-ubuntu-2204-with-acl-enabled:
   extends:
-    - .stage-test-with-acl-enabled
+    - .stage-test-with-custom-config
     - .variables-ubuntu-2204
-    - .script-molecule-test-with-acl-enabled
+    - .script-molecule-test-with-custom-config
 
 ansible-test-debian-11-with-acl-enabled:
   extends:
-    - .stage-test-with-acl-enabled
+    - .stage-test-with-custom-config
     - .variables-debian-11
-    - .script-molecule-test-with-acl-enabled
+    - .script-molecule-test-with-custom-config
