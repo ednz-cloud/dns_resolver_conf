@@ -56,7 +56,6 @@ None.
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 ```yaml
 # calling the role inside a playbook with either the default or group_vars/host_vars
 - hosts: servers
