@@ -28,7 +28,6 @@ scenario:
   name: with_custom_config
   test_sequence:
     - dependency
-    - lint
     - cleanup
     - destroy
     - syntax
