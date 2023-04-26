@@ -63,19 +63,19 @@ ansible-test-debian-11-default:
     - .variables-debian-11
     - .script-molecule-test-default
 
-ansible-test-ubuntu-2004-with-acl-enabled:
+ansible-test-ubuntu-2004-with-custom-config:
   extends:
     - .stage-test-with-custom-config
     - .variables-ubuntu-2004
     - .script-molecule-test-with-custom-config
 
-ansible-test-ubuntu-2204-with-acl-enabled:
+ansible-test-ubuntu-2204-with-custom-config:
   extends:
     - .stage-test-with-custom-config
     - .variables-ubuntu-2204
     - .script-molecule-test-with-custom-config
 
-ansible-test-debian-11-with-acl-enabled:
+ansible-test-debian-11-with-custom-config:
   extends:
     - .stage-test-with-custom-config
     - .variables-debian-11
