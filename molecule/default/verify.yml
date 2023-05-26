@@ -1,0 +1,43 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: "Test: file /etc/hosts"
+      block:
+        - name: "Stat file /etc/hosts"
+          ansible.builtin.stat:
+            path: "/etc/hosts"
+          register: stat_etc_hosts
+
+        - name: "Verify file /etc/hosts"
+          ansible.builtin.assert:
+            that:
+              - stat_etc_hosts.stat.exists
+              - stat_etc_hosts.stat.isreg
+              - stat_etc_hosts.stat.pw_name == 'root'
+              - stat_etc_hosts.stat.gr_name == 'root'
+
+    - name: "Test: file /tmp/resolv.conf"
+      block:
+        - name: "Stat file /tmp/resolv.conf"
+          ansible.builtin.stat:
+            path: "/tmp/resolv.conf"
+          register: stat_tmp_resolv_conf
+
+        - name: "Slurp file /tmp/resolv.conf"
+          ansible.builtin.slurp:
+            src: "/tmp/resolv.conf"
+          register: slurp_tmp_resolv_conf
+
+        - name: "Verify file /tmp/resolv.conf"
+          ansible.builtin.assert:
+            that:
+              - stat_tmp_resolv_conf.stat.exists
+              - stat_tmp_resolv_conf.stat.isreg
+              - stat_tmp_resolv_conf.stat.pw_name == 'root'
+              - stat_tmp_resolv_conf.stat.gr_name == 'root'
+              - stat_tmp_resolv_conf.stat.mode == '0644'
+              - "'search local.lan' in (slurp_tmp_resolv_conf.content|b64decode)"
+              - "'nameserver 1.1.1.1' in (slurp_tmp_resolv_conf.content|b64decode)"
+              - "'nameserver 8.8.8.8' in (slurp_tmp_resolv_conf.content|b64decode)"
