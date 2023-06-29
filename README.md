@@ -1,6 +1,6 @@
-DNS resolver conf
+dns_resolver_conf
 =========
-> This repository is only a mirror. Development and testing is done on a private gitlab server.
+> This repository is only a mirror. Development and testing is done on a private gitea server.
 
 This role configures dns resolvers on **debian-based** distributions.
 
