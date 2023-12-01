@@ -1,0 +1,12 @@
+---
+dns_resolv_conf_disable_resolvectl: true
+dns_resolv_conf_path: '/tmp'
+dns_resolv_conf_nameservers:
+  - "10.1.20.53"
+  - "10.1.20.54"
+dns_resolv_conf_domain: ""
+dns_resolv_conf_search:
+  - "example.org"
+  - "az1.example.org"
+dns_resolv_conf_sortlist: []
+dns_resolv_conf_options: [edns0, rotate]
