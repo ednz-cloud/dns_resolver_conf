@@ -9,4 +9,3 @@
     enabled: "{{ 'true' if not dns_resolv_conf_disable_resolvectl else 'false' }}"
     state: "{{ 'started' if not dns_resolv_conf_disable_resolvectl else 'stopped' }}"
   when: "'systemd-resolved.service' in ansible_facts.services"
-  become: true
