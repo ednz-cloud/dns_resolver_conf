@@ -1,12 +1,12 @@
 ---
 # meta file for dns_resolver_conf
 galaxy_info:
-  namespace: 'ednxzu'
-  role_name: 'dns_resolver_conf'
-  author: 'Bertrand Lanson'
-  description: 'Configure dns resolution for debian-based distros.'
-  license: 'license (BSD, MIT)'
-  min_ansible_version: '2.10'
+  namespace: "ednz_cloud"
+  role_name: "dns_resolver_conf"
+  author: "Bertrand Lanson"
+  description: "Configure dns resolution for debian-based distros."
+  license: "license (BSD, MIT)"
+  min_ansible_version: "2.10"
   platforms:
     - name: Ubuntu
       versions:
@@ -17,9 +17,9 @@ galaxy_info:
         - bullseye
         - bookworm
   galaxy_tags:
-    - 'ubuntu'
-    - 'debian'
-    - 'dns'
-    - 'resolvectl'
+    - "ubuntu"
+    - "debian"
+    - "dns"
+    - "resolvectl"
 
 dependencies: []

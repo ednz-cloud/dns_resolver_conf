@@ -3,6 +3,6 @@
   hosts: all
   become: true
   tasks:
-    - name: "Include ednxzu.dns_resolver_conf"
+    - name: "Include ednz_cloud.dns_resolver_conf"
       ansible.builtin.include_role:
-        name: "ednxzu.dns_resolver_conf"
+        name: "ednz_cloud.dns_resolver_conf"

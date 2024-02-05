@@ -60,7 +60,7 @@ Example Playbook
 # calling the role inside a playbook with either the default or group_vars/host_vars
 - hosts: servers
   roles:
-    - ednxzu.dns_resolver_conf
+    - ednz_cloud.dns_resolver_conf
 ```
 
 License
